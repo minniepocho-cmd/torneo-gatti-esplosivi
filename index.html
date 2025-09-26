@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Torneo Gatti Esplosivi</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#4caf50" />
+</head>
+<body>
+  <div class="container">
+    <h1>🐱 Torneo Gatti Esplosivi 💥</h1>
+    <h2 id="tournamentCounter">Torneo N°1</h2>
+
+    <div id="registration">
+      <h2>Iscrivi i gatti coraggiosi (max 10)</h2>
+      <input type="text" id="catName" placeholder="Nome del gatto"/>
+      <button onclick="registerCat()">Iscrivi</button>
+      <ul id="catList"></ul>
+      <button id="startTournamentBtn" onclick="startTournament()" disabled>Inizia il torneo</button>
+    </div>
+
+    <div id="tournament" style="display:none;">
+      <h2>🔁 Scontri del torneo</h2>
+      <div id="matchArea"></div>
+    </div>
+
+    <div id="ranking">
+      <h2>🏆 Classifica Generale</h2>
+      <ul id="rankingList"></ul>
+    </div>
+
+    <div id="hallOfFame">
+      <h2>🌟 Hall of Fame</h2>
+      <ul id="fameList"></ul>
+      <button onclick="resetHallOfFame()">Azzera Hall of Fame</button>
+    </div>
+
+    <div id="stats">
+      <h2>📈 Statistiche Totali</h2>
+      <p id="totalTournaments">Tornei giocati: 1</p>
+      <p id="topScorer">Gatto con più punti: —</p>
+      <p id="mostWins">Gatto con più vittorie: —</p>
+      <button onclick="resetEverything()">🔥 Azzera tutto</button>
+    </div>
+
+    <div id="themeButtons">
+      <h2>🎭 Cambia Tema</h2>
+      <button onclick="toggleHalloween()">🎃 Halloween</button>
+      <button onclick="toggleNatale()">🎄 Natale</button>
+      <button onclick="resetThemes()">🌈 Tema Classico</button>
+    </div>
+
+    <div id="bracket">
+      <h2>📊 Tabellone Torneo</h2>
+      <div class="bracket-container" id="bracketContainer"></div>
+    </div>
+
+    <button id="resetBtn" onclick="resetTournament()">🔄 Nuovo torneo</button>
+
+    <div id="reuseCatsModal" style="display:none;" class="modal">
+      <h2>🐾 Seleziona i gatti da reiscrivere</h2>
+      <div>
+        <button onclick="selectAllCats()">Seleziona tutti</button>
+        <button onclick="deselectAllCats()">Deseleziona tutti</button>
+      </div>
+      <form id="reuseCatsForm"></form>
+      <button onclick="confirmReuseCats()">Conferma</button>
+      <button onclick="cancelReuseCats()">Annulla</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
