@@ -9,6 +9,11 @@
   "background_color": "#d4fcd4",
   "theme_color": "#4caf50",
   "description": "Un torneo epico tra gatti coraggiosi!",
+  "lang": "it",
+  "dir": "ltr",
+  "categories": ["games", "casual", "entertainment"],
+  "iarc_rating_id": "UNRATED",
+  "display_override": ["standalone", "fullscreen"],
   "icons": [
     {
       "src": "icon-192.png",
@@ -32,5 +37,14 @@
       "sizes": "540x960",
       "type": "image/png"
     }
-  ]
+  ],
+  "shortcuts": [
+    {
+      "name": "Inizia torneo",
+      "url": "/torneo-gatti-esplosivi/index.html",
+      "icons": [{ "src": "icon-192.png", "sizes": "192x192" }]
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false
 }
