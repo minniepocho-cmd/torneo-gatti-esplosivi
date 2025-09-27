@@ -8,6 +8,16 @@
   <link rel="manifest" href="manifest.json" />
   <meta name="theme-color" content="#4caf50" />
 </head>
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('service-worker.js')
+      .then(() => console.log('Service Worker registrato!'))
+      .catch(err => console.error('Errore Service Worker:', err));
+  }
+</script>
+
+
 <body>
   <div class="container">
     <h1>🐱 Torneo Gatti Esplosivi 💥</h1>
@@ -15,8 +25,11 @@
 
     <div id="registration">
       <h2>Iscrivi i gatti coraggiosi (max 10)</h2>
-      <input type="text" id="catName" placeholder="Nome del gatto"/>
-      <button onclick="registerCat()">Iscrivi</button>
+     <div class="input-group">
+  <input type="text" id="catName" placeholder="Nome del gatto"/>
+  <button onclick="registerCat()">Iscrivi</button>
+</div>
+
       <ul id="catList"></ul>
       <button id="startTournamentBtn" onclick="startTournament()" disabled>Inizia il torneo</button>
     </div>

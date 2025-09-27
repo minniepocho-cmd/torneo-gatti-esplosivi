@@ -51,9 +51,17 @@ button:hover {
   transform: scale(1.05);
 }
 
+button:active {
+  animation: pop 0.3s ease-in-out;
+}
+
 button:disabled {
   background-color: #ccc;
   cursor: not-allowed;
+}
+
+button:focus {
+  outline: 2px solid #4caf50;
 }
 
 ul {
@@ -96,9 +104,26 @@ li::before {
   text-shadow: 0 0 5px #ffd700, 0 0 10px #ffecb3;
 }
 
+.re-dei-gatti {
+  font-weight: bold;
+  color: gold;
+  text-shadow: 0 0 5px gold;
+}
+
 @keyframes glowIn {
   0% { opacity: 0; transform: scale(0.8); }
   100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
 }
 
 #bracket {
@@ -138,11 +163,6 @@ li::before {
   font-style: italic;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.9); }
-  to { opacity: 1; transform: scale(1); }
-}
-
 .modal {
   background-color: #fff;
   border: 2px solid #4caf50;
@@ -155,12 +175,6 @@ li::before {
 
 .modal input[type="checkbox"] {
   margin-right: 10px;
-}
-
-.re-dei-gatti {
-  font-weight: bold;
-  color: gold;
-  text-shadow: 0 0 5px gold;
 }
 
 body.halloween {
@@ -252,5 +266,10 @@ body.natale .bracket-match {
 
   #matchArea button {
     margin-top: 5px;
+  }
+
+  .modal {
+    width: 90%;
+    padding: 15px;
   }
 }

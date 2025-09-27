@@ -9,6 +9,18 @@ let finalMatchPending = false;
 let bracketRounds = [];
 let tournamentCount = 1;
 
+function generaTorneo(giocatori) {
+  const partite = [];
+  for (let i = 0; i < giocatori.length; i += 2) {
+    if (giocatori[i + 1]) {
+      partite.push(`${giocatori[i]} vs ${giocatori[i + 1]}`);
+    } else {
+      partite.push(`${giocatori[i]} ha un turno libero`);
+    }
+  }
+  return partite;
+}
+
 function registerCat() {
   const name = document.getElementById("catName").value.trim();
   if (name && cats.length < 10 && !cats.includes(name)) {
@@ -151,7 +163,6 @@ function showNextMatch() {
     showNextMatch();
   }
 }
-
 function updateRanking() {
   const list = document.getElementById("rankingList");
   list.innerHTML = "";
@@ -327,6 +338,7 @@ window.onload = () => {
   });
   updateStats();
 };
+
 function resetEverything() {
   cats = [];
   ranking = {};
