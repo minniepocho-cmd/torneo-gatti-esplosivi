@@ -23,12 +23,12 @@
   ],
   "screenshots": [
     {
-      "src": "https://minniepocho-cmd.github.io/torneo-gatti-esplosivi/screenshot1.png",
+      "src": "https://raw.githubusercontent.com/minniepocho-cmd/torneo-gatti-esplosivi/main/screenshots/screenshot1.png",
       "sizes": "540x960",
       "type": "image/png"
     },
     {
-      "src": "https://minniepocho-cmd.github.io/torneo-gatti-esplosivi/screenshot2.png",
+      "src": "https://raw.githubusercontent.com/minniepocho-cmd/torneo-gatti-esplosivi/main/screenshots/screenshot2.png",
       "sizes": "540x960",
       "type": "image/png"
     }
