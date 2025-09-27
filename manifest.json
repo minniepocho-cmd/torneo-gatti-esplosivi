@@ -1,7 +1,8 @@
 {
   "name": "Torneo Gatti Esplosivi",
   "short_name": "Gatti Esplosivi",
-  "start_url": "index.html",
+  "start_url": "/torneo-gatti-esplosivi/index.html",
+  "scope": "/torneo-gatti-esplosivi/",
   "display": "standalone",
   "background_color": "#d4fcd4",
   "theme_color": "#4caf50",

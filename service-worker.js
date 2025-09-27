@@ -1,18 +1,28 @@
 const cacheName = 'gatti-esplosivi-v1';
 const assets = [
-  '/',
-  '/index.html',
-  '/style.css',
-  '/script.js',
-  '/manifest.json',
-  '/icon-192.png',
-  '/icon-512.png'
+  '/torneo-gatti-esplosivi/',
+  '/torneo-gatti-esplosivi/index.html',
+  '/torneo-gatti-esplosivi/style.css',
+  '/torneo-gatti-esplosivi/script.js',
+  '/torneo-gatti-esplosivi/manifest.json',
+  '/torneo-gatti-esplosivi/icon-192.png',
+  '/torneo-gatti-esplosivi/icon-512.png'
 ];
 
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(cacheName).then(cache => {
       return cache.addAll(assets);
+    })
+  );
+});
+
+self.addEventListener('activate', event => {
+  event.waitUntil(
+    caches.keys().then(keys => {
+      return Promise.all(
+        keys.filter(k => k !== cacheName).map(k => caches.delete(k))
+      );
     })
   );
 });
