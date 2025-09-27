@@ -163,6 +163,7 @@ function showNextMatch() {
     showNextMatch();
   }
 }
+
 function updateRanking() {
   const list = document.getElementById("rankingList");
   list.innerHTML = "";
@@ -203,7 +204,6 @@ function updateStats() {
   document.getElementById("topScorer").textContent = `Gatto con più punti: ${topScorer ? topScorer[0] : "—"}`;
   document.getElementById("mostWins").textContent = `Gatto con più vittorie: ${mostWins ? mostWins[0] : "—"}`;
 }
-
 function resetHallOfFame() {
   localStorage.removeItem("hallOfFame");
   document.getElementById("fameList").innerHTML = "";
@@ -222,9 +222,9 @@ function resetTournament() {
   const maxWins = Math.max(...Object.values(winCount), 0);
 
   cats.forEach(name => {
-    const label = document.createElement("label");
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
+    checkbox.id = `reuse-${name}`;
     checkbox.value = name;
     checkbox.checked = true;
 
@@ -232,9 +232,12 @@ function resetTournament() {
     if (winCount[name] && winCount[name] > 0) badge += " 🏆";
     if (winCount[name] === maxWins && maxWins > 0) badge += " 👑";
 
+    const label = document.createElement("label");
+    label.setAttribute("for", `reuse-${name}`);
     label.className = winCount[name] === maxWins && maxWins > 0 ? "re-dei-gatti" : "";
-    label.appendChild(checkbox);
-    label.appendChild(document.createTextNode(name + badge));
+    label.textContent = name + badge;
+
+    form.appendChild(checkbox);
     form.appendChild(label);
     form.appendChild(document.createElement("br"));
   });
