@@ -3,6 +3,8 @@
   "short_name": "Gatti Esplosivi",
   "start_url": "/torneo-gatti-esplosivi/index.html",
   "scope": "/torneo-gatti-esplosivi/",
+  "id": "/torneo-gatti-esplosivi/",
+  "orientation": "portrait",
   "display": "standalone",
   "background_color": "#d4fcd4",
   "theme_color": "#4caf50",
@@ -16,6 +18,18 @@
     {
       "src": "icon-512.png",
       "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "https://minniepocho-cmd.github.io/torneo-gatti-esplosivi/screenshot1.png",
+      "sizes": "540x960",
+      "type": "image/png"
+    },
+    {
+      "src": "https://minniepocho-cmd.github.io/torneo-gatti-esplosivi/screenshot2.png",
+      "sizes": "540x960",
       "type": "image/png"
     }
   ]
