@@ -273,3 +273,22 @@ body.natale .bracket-match {
     padding: 15px;
   }
 }
+.elimination-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.cat-card {
+  background-color: #fff3e0;
+  border: 2px solid #ffb74d;
+  border-radius: 10px;
+  padding: 15px;
+  width: 150px;
+  text-align: center;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+  animation: fadeIn 0.5s ease-in-out;
+}
+

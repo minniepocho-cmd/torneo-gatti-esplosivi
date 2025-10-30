@@ -17,19 +17,23 @@
   }
 </script>
 
-
 <body>
   <div class="container">
     <h1>🐱 Torneo Gatti Esplosivi 💥</h1>
     <h2 id="tournamentCounter">Torneo N°1</h2>
 
-    <div id="registration">
-      <h2>Iscrivi i gatti coraggiosi (max 10)</h2>
-     <div class="input-group">
-  <input type="text" id="catName" placeholder="Nome del gatto"/>
-  <button onclick="registerCat()">Iscrivi</button>
-</div>
+    <div id="modeSelector">
+      <h2>🎮 Seleziona modalità di gioco</h2>
+      <button onclick="setGameMode('duello')">🥊 Battle 1v1</button>
+      <button onclick="setGameMode('royale')">🧨 Battle Royale</button>
+    </div>
 
+    <div id="registration" style="display:none;">
+      <h2>Iscrivi i gatti coraggiosi (max 10)</h2>
+      <div class="input-group">
+        <input type="text" id="catName" placeholder="Nome del gatto"/>
+        <button onclick="registerCat()">Iscrivi</button>
+      </div>
       <ul id="catList"></ul>
       <button id="startTournamentBtn" onclick="startTournament()" disabled>Inizia il torneo</button>
     </div>
