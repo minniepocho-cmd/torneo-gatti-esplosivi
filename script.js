@@ -369,17 +369,28 @@ function renderBracket(rounds) {
 }
 
 function toggleHalloween() {
-  document.body.classList.remove("natale", "galattico");
+  document.body.classList.remove("natale", "galattico", "cyberpunk");
   document.body.classList.toggle("halloween");
 }
 
 function toggleNatale() {
-  document.body.classList.remove("halloween", "galattico");
+  document.body.classList.remove("halloween", "galattico", "cyberpunk");
   document.body.classList.toggle("natale");
 }
 
+
 function resetThemes() {
+  document.body.classList.remove("halloween", "natale", "galattico", "cyberpunk");
+}
+
+function toggleGalattico() {
+  document.body.classList.remove("halloween", "natale", "cyberpunk");
+  document.body.classList.toggle("galattico");
+}
+
+function toggleCyberpunk() {
   document.body.classList.remove("halloween", "natale", "galattico");
+  document.body.classList.toggle("cyberpunk");
 }
 
 window.onload = () => {
