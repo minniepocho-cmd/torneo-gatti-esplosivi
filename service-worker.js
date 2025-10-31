@@ -1,4 +1,4 @@
-const cacheName = 'gatti-esplosivi-v1';
+const cacheName = 'gatti-esplosivi-cache';
 const assets = [
   '/torneo-gatti-esplosivi/',
   '/torneo-gatti-esplosivi/index.html',
@@ -9,28 +9,34 @@ const assets = [
   '/torneo-gatti-esplosivi/icon-512.png'
 ];
 
+// Installa e salva i file nella cache
 self.addEventListener('install', event => {
+  self.skipWaiting(); // forza l'attivazione immediata
   event.waitUntil(
-    caches.open(cacheName).then(cache => {
-      return cache.addAll(assets);
-    })
+    caches.open(cacheName).then(cache => cache.addAll(assets))
   );
 });
 
+// Attiva e cancella vecchie cache
 self.addEventListener('activate', event => {
   event.waitUntil(
-    caches.keys().then(keys => {
-      return Promise.all(
-        keys.filter(k => k !== cacheName).map(k => caches.delete(k))
-      );
-    })
+    caches.keys().then(keys =>
+      Promise.all(keys.filter(k => k !== cacheName).map(k => caches.delete(k)))
+    )
   );
+  return self.clients.claim(); // aggiorna subito tutte le pagine aperte
 });
 
+// Intercetta richieste e aggiorna la cache se il file è cambiato
 self.addEventListener('fetch', event => {
   event.respondWith(
-    caches.match(event.request).then(response => {
-      return response || fetch(event.request);
-    })
+    fetch(event.request)
+      .then(response => {
+        // aggiorna la cache con la nuova versione
+        const responseClone = response.clone();
+        caches.open(cacheName).then(cache => cache.put(event.request, responseClone));
+        return response;
+      })
+      .catch(() => caches.match(event.request)) // se offline, usa la cache
   );
 });
